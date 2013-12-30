@@ -24,6 +24,10 @@ app.use(flash());
 app.use(express.favicon(__dirname + '/public/images/favicon.ico'));
 app.use(express.logger('dev'));
 app.use(express.logger({stream: accessLog}));
+//3.0中使用:
+//app.use(express.json());
+//app.use(express.urlencoded());
+//使用 bodyParser 会在 app 运行时在控制台产生一个 错误提示：connect.multiport（）3.0中被移除
 app.use(express.bodyParser({ keepExtensions: true, uploadDir: './public/images' }));
 app.use(express.methodOverride());
 app.use(express.cookieParser());
